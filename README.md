@@ -20,20 +20,23 @@ A stunning, modern travel website showcasing the incredible beauty and cultural 
 *Learn more about traveling in India with beautiful Mysore Palace imagery*
 
 ### Popular Destinations
-![Popular Section](<img width="1919" height="1079" alt="Screenshot 2025-10-05 015555" src="https://github.com/user-attachments/assets/45e577f4-9a6c-47e0-b014-1856beb0026a" />
-)
+![Popular Section]<img width="1919" height="1079" alt="Screenshot 2025-10-05 015555" src="https://github.com/user-attachments/assets/45e577f4-9a6c-47e0-b014-1856beb0026a" />
+
 *Interactive cards showcasing India's most famous tourist destinations*
 
 ### Explore & Testimonials
-![Explore Section](./preview/explore-section.png)
+![Explore Section]<img width="1861" height="1074" alt="Screenshot 2025-10-05 015607" src="https://github.com/user-attachments/assets/2824358e-efba-4c65-b74a-83c929ff38db" />
+
 *Real traveler testimonials and exploration content*
 
 ### Newsletter Subscription
-![Join Section](./preview/join-section.png)
+![Join Section]<img width="1871" height="666" alt="Screenshot 2025-10-05 015613" src="https://github.com/user-attachments/assets/a419539e-8087-4696-bc6c-2545e0125a61" />
+
 *Stay updated with the latest travel information and deals*
 
 ### Developer Profile
-![Footer Profile](./preview/footer-profile.png)
+![Footer Profile]<img width="1905" height="886" alt="Screenshot 2025-10-05 015619" src="https://github.com/user-attachments/assets/e6fe813d-543a-4ba7-8e24-176f14daae06" />
+
 *Professional developer information and contact details*
 
 ---
