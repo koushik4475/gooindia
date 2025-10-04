@@ -271,6 +271,5 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Made with ❤️ by Koushik HY**
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://gooindia.netlify.app/)
 
 </div>
