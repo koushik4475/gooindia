@@ -1,4 +1,4 @@
-# 🇮🇳 TRAVEL 2024 | INDIA
+# GO india 
 
 A stunning, modern travel website showcasing the incredible beauty and cultural richness of India. Built with pure HTML, CSS, and JavaScript, this single-page application features smooth animations, interactive particle effects, and a responsive design.
 
