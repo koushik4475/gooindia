@@ -90,8 +90,8 @@ A stunning, modern travel website showcasing the incredible beauty and cultural 
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/koushik4475/gooindia-.git
-cd india-travel-website
+git clone https://github.com/koushik4475/gooindia.git
+cd gooindia
 ```
 
 ### 2. Project Structure
