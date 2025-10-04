@@ -10,7 +10,8 @@ A stunning, modern travel website showcasing the incredible beauty and cultural 
 ## 🌟 Preview
 
 ### Hero Section - Taj Mahal Welcome
-![Hero Section](./preview/hero-section.png)
+![Hero Section](<img width="1919" height="1057" alt="Screenshot 2025-10-05 015521" src="https://github.com/user-attachments/assets/ec7444a4-8b61-4acf-94b6-8657bf9ac5f3" />
+)
 *Animated hero section with the iconic Taj Mahal background and particle effects*
 
 ### About Section
