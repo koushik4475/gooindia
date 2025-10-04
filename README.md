@@ -10,12 +10,13 @@ A stunning, modern travel website showcasing the incredible beauty and cultural 
 ## 🌟 Preview
 
 ### Hero Section - Taj Mahal Welcome
-![Hero Section](<img width="1919" height="1057" alt="Screenshot 2025-10-05 015521" src="https://github.com/user-attachments/assets/ec7444a4-8b61-4acf-94b6-8657bf9ac5f3" />
-)
+<img width="1919" height="1057" alt="Screenshot 2025-10-05 015521" src="https://github.com/user-attachments/assets/b337b886-f6e5-4ecc-8f6c-dfae965f23e7" />
+
 *Animated hero section with the iconic Taj Mahal background and particle effects*
 
 ### About Section
-![About Section](./preview/about-section.png)
+![About Section]<img width="1916" height="702" alt="Screenshot 2025-10-05 015550" src="https://github.com/user-attachments/assets/4d92c81f-c70e-4033-9d33-e590948fcede" />
+
 *Learn more about traveling in India with beautiful Mysore Palace imagery*
 
 ### Popular Destinations
