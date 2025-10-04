@@ -20,7 +20,8 @@ A stunning, modern travel website showcasing the incredible beauty and cultural 
 *Learn more about traveling in India with beautiful Mysore Palace imagery*
 
 ### Popular Destinations
-![Popular Section](./preview/popular-section.png)
+![Popular Section](<img width="1919" height="1079" alt="Screenshot 2025-10-05 015555" src="https://github.com/user-attachments/assets/45e577f4-9a6c-47e0-b014-1856beb0026a" />
+)
 *Interactive cards showcasing India's most famous tourist destinations*
 
 ### Explore & Testimonials
