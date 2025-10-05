@@ -23,7 +23,7 @@
 
 **👆 Click the image above to explore the live website! 👆**
 
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,12,20&height=100&section=header&animation=twinkling" width="100%"/>
 
 </div>
 
@@ -329,7 +329,7 @@ graph LR
 
 We love contributions! 🎉
 
-<img src="https://user-images.githubusercontent.com/74038190/216644497-1951db19-8f3d-4e44-ac08-8e9d7e0d94a7.gif" width="300">
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=FF6B35&center=true&vCenter=true&repeat=true&width=500&lines=Fork+%E2%86%92+Code+%E2%86%92+Commit+%E2%86%92+Push+%E2%86%92+PR;Join+Our+Community!;Make+India+Tourism+Better!" alt="Contribution Flow" />
 
 ### **How to Contribute**
 
@@ -378,6 +378,8 @@ We love contributions! 🎉
 <br>
 
 📍 **Available for Freelance Projects**
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,12,20&height=2" width="100%"/>
 
 </div>
 
