@@ -157,7 +157,7 @@
 <div align="center">
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#FF6B35','primaryTextColor':'#fff','primaryBorderColor':'#FF6B35','lineColor':'#FFD700','secondaryColor':'#1a1a1a','tertiaryColor':'#2d2d2d','noteTextColor':'#fff','noteBkgColor':'#FF6B35'}}}%%
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#FF6B35','primaryTextColor':'#ffffff','primaryBorderColor':'#FF8C00','lineColor':'#FFD700','secondaryColor':'#4CAF50','secondaryTextColor':'#ffffff','secondaryBorderColor':'#45a049','tertiaryColor':'#2196F3','tertiaryTextColor':'#ffffff','tertiaryBorderColor':'#1976D2','noteBkgColor':'#FF6B35','noteTextColor':'#ffffff','background':'#1a1a2e','mainBkg':'#FF6B35','nodeBorder':'#FFD700'}}}%%
 mindmap
   root((🇮🇳 INDIA))
     🏰 Historical
@@ -388,7 +388,7 @@ We love contributions! 🎉
 <div align="center">
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#FF6B35','primaryTextColor':'#fff','primaryBorderColor':'#FF6B35','lineColor':'#FFD700','secondaryColor':'#00C853','tertiaryColor':'#FFD700','grid':'#444','background':'#0d1117','mainBkg':'#FF6B35','secondBkg':'#00C853','tertiaryBkg':'#FFD700','textColor':'#fff','fontSize':'16px'}}}%%
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#FF6B35','primaryTextColor':'#ffffff','primaryBorderColor':'#FF8C00','lineColor':'#FFD700','secondaryColor':'#4CAF50','tertiaryColor':'#2196F3','grid':'#666','background':'#1a1a2e','mainBkg':'#FF6B35','secondBkg':'#4CAF50','tertiaryBkg':'#2196F3','textColor':'#ffffff','fontSize':'16px','gridTextColor':'#ffffff','sectionBkgColor':'#16213e','altSectionBkgColor':'#0f3460','taskBorderColor':'#FFD700','taskTextColor':'#ffffff'}}}%%
 gantt
     title Future Enhancements Roadmap
     dateFormat  YYYY-MM-DD
