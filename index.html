@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAVEL 2024 | INDIA</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap");
+
+        :root {
+            --header-height: 3.5rem;
+            --title-color: hsl(0, 0%, 100%);
+            --text-color: hsl(0, 0%, 70%);
+            --text-color-light: hsl(0, 0%, 60%);
+            --body-color: hsl(0, 0%, 0%);
+            --container-color: hsl(0, 0%, 8%);
+            --accent-color: hsl(20, 91%, 49%);
+            --accent-glow: hsla(20, 91%, 49%, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: var(--body-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* Particle Canvas */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            transition: all 0.3s;
+        }
+
+        .blur-header {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 20px rgba(255, 107, 0, 0.1);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--title-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nav__logo i {
+            color: #ff6b6b;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .nav__menu {
+            display: flex;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nav__link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-color), #ff6b6b);
+            transition: width 0.3s;
+        }
+
+        .nav__link:hover,
+        .nav__link.active-link {
+            color: var(--title-color);
+        }
+
+        .nav__link:hover::after,
+        .nav__link.active-link::after {
+            width: 100%;
+        }
+
+        .nav__toggle,
+        .nav__close {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--title-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .home {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .home__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .home__shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%);
+            z-index: 1;
+        }
+
+        .home__container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .home__data {
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .home__subtitle {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .home__title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            color: var(--title-color);
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+
+        .home__title-animated {
+            background: linear-gradient(45deg, #000000, #ff6b49, #000000, #ff8c00, #000000);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShiftText 5s ease infinite;
+            display: inline-block;
+        }
+
+        @keyframes gradientShiftText {
+            0% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 50% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            75% {
+                background-position: 50% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .home__description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--accent-color), #ff6b6b);
+            color: var(--title-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 107, 73, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 73, 0.5);
+        }
+
+        .button i {
+            transition: transform 0.3s;
+        }
+
+        .button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Cards Grid */
+        .home__cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .home__card-link {
+            text-decoration: none;
+        }
+
+        .home__card {
+            position: relative;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .home__card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .home__card:hover .home__card-img {
+            transform: scale(1.15) rotate(2deg);
+        }
+
+        .home__card-shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.8) 100%);
+            transition: background 0.4s;
+        }
+
+        .home__card:hover .home__card-shadow {
+            background: linear-gradient(180deg, rgba(255, 107, 73, 0.3) 0%, rgba(0, 0, 0, 0.9) 100%);
+        }
+
+        .home__card-title {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--title-color);
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s;
+        }
+
+        .home__card:hover .home__card-title {
+            transform: translateY(-10px);
+        }
+
+        /* Section Styling */
+        .section {
+            position: relative;
+            z-index: 2;
+            padding: 5rem 2rem;
+        }
+
+        .section__title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--title-color);
+            text-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        }
+
+        .about__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about__data {
+            animation: fadeInLeft 1s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about__description {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .about__image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 107, 73, 0.3);
+            animation: fadeInRight 1s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about__img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.6s;
+            display: block;
+        }
+
+        .about__image:hover .about__img {
+            transform: scale(1.1);
+        }
+
+        .about__shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.5) 100%);
+            pointer-events: none;
+        }
+
+        /* Popular Section */
+        .popular {
+            background: var(--body-color);
+        }
+
+        .popular__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .popular_card {
+            background: var(--container-color);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.4s;
+            border: 1px solid rgba(255, 107, 73, 0.1);
+        }
+
+        .popular_card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 107, 73, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        .popular__image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            height: 250px;
+        }
+
+        .popular__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .popular_card:hover .popular__img {
+            transform: scale(1.15);
+        }
+
+        .popular__shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.5) 100%);
+            pointer-events: none;
+        }
+
+        .popular__title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--title-color);
+        }
+
+        .popular__location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .popular__location i {
+            color: var(--accent-color);
+        }
+
+        /* Explore Section */
+        .explore {
+            position: relative;
+            min-height: 600px;
+        }
+
+        .explore__container {
+            position: relative;
+        }
+
+        .explore__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .explore__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .explore__shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%);
+        }
+
+        .explore__content {
+            position: relative;
+            padding-top: 18rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .explore__data {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Testimonials */
+        .testimonials__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding-top: 2rem;
+        }
+
+        .testimonial_card {
+            background: var(--container-color);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s;
+            border: 1px solid rgba(255, 107, 73, 0.1);
+        }
+
+        .testimonial_card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 107, 73, 0.3);
+        }
+
+        .testimonial__image {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial__img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            object-fit: cover;
+        }
+
+        .testimonial__title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--title-color);
+        }
+
+        .stars {
+            color: #ffa500;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Join Section */
+        .join {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        }
+
+        .join__container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .join__description {
+            margin-bottom: 2rem;
+        }
+
+        .join__form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .join__input {
+            padding: 1rem 1.5rem;
+            background: var(--container-color);
+            border: 2px solid transparent;
+            border-radius: 50px;
+            color: var(--title-color);
+            transition: all 0.3s;
+        }
+
+        .join__input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 20px var(--accent-glow);
+            outline: none;
+        }
+
+        .join__image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 107, 73, 0.3);
+        }
+
+        .join__img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.6s;
+            display: block;
+        }
+
+        .join__image:hover .join__img {
+            transform: scale(1.1);
+        }
+
+        .join__shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.5) 100%);
+            pointer-events: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer__container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer_content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer__profile-section {
+            text-align: center;
+        }
+
+        .footer__logo-title {
+            font-size: 1.5rem;
+            color: #12eb0b;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(18, 235, 11, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .footer__logo-title i {
+            font-size: 1.8rem;
+            background: radial-gradient(circle, #ff6b49 0%, #ff8c00 50%, #ff4500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fireballSpin 2s linear infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 73, 0.8));
+        }
+
+        @keyframes fireballSpin {
+            0% { 
+                transform: rotate(0deg) scale(1);
+                filter: drop-shadow(0 0 10px rgba(255, 107, 73, 0.8));
+            }
+            25% {
+                transform: rotate(90deg) scale(1.1);
+                filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.9));
+            }
+            50% { 
+                transform: rotate(180deg) scale(1);
+                filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.8));
+            }
+            75% {
+                transform: rotate(270deg) scale(1.1);
+                filter: drop-shadow(0 0 15px rgba(255, 107, 73, 0.9));
+            }
+            100% { 
+                transform: rotate(360deg) scale(1);
+                filter: drop-shadow(0 0 10px rgba(255, 107, 73, 0.8));
+            }
+        }
+
+        .footer__profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid var(--accent-color);
+            transition: all 0.3s;
+            object-fit: cover;
+        }
+
+        .footer__profile-img:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 51, 0.6);
+            transform: scale(1.05);
+        }
+
+        .footer__title {
+            color: aqua;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer__title:hover {
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        }
+
+        .footer__title i {
+            font-size: 1.4rem;
+        }
+
+        .footer__name-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .footer__name-link:hover {
+            color: #ff6b6b;
+            text-shadow: 0 0 10px rgba(255, 107, 73, 0.5);
+        }
+
+        .footer__contact-link {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer__contact-link:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        .footer__contact-link i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .footer__institution {
+            font-weight: 600;
+            color: #12eb0b;
+        }
+
+        .footer__availability {
+            color: #ffa500;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .footer__descriptions {
+            list-style: none;
+        }
+
+        .footer__description {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer__description:hover {
+            color: var(--title-color);
+        }
+
+        .footer__group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer__social {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer__social-link {
+            color: aqua;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .footer__social-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .footer__copy {
+            text-align: center;
+            color: var(--text-color-light);
+            font-size: 0.9rem;
+        }
+
+        .footer__data {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Scroll to Top */
+        .scrollup {
+            position: fixed;
+            right: 2rem;
+            bottom: -50%;
+            background: linear-gradient(135deg, var(--accent-color), #ff6b6b);
+            color: var(--title-color);
+            padding: 0.75rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            z-index: 100;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 107, 73, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .scrollup.show-scroll {
+            bottom: 3rem;
+        }
+
+        .scrollup:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 73, 0.6);
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .nav__menu {
+                display: none;
+            }
+
+            .nav__toggle {
+                display: block;
+            }
+
+            .home__cards {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .footer__group {
+                flex-direction: column;
+            }
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="#" class="nav__logo">
+                INDIA<i class="ri-heart-line"></i>
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <a href="#home" class="nav__link active-link">Home</a>
+                <a href="#about" class="nav__link">About</a>
+                <a href="#popular" class="nav__link">Popular</a>
+                <a href="#explore" class="nav__link">Explore</a>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="home section" id="home">
+            <img src="assets/img/home_bg.jpg" alt="home image" class="home__bg">
+            <div class="home__shadow"></div>
+            
+            <div class="home__container">
+                <div class="home__data">
+                    <h3 class="home__subtitle">Welcome to Travel 2024</h3>
+                    <h1 class="home__title">
+                        <span class="home__title-animated">Explore<br>Incredible INDIA</span>
+                    </h1>
+                    <p class="home__description">
+                        Discover the magical beauty, rich culture, and breathtaking landscapes 
+                        that make India a paradise for travelers
+                    </p>
+                    <a href="#about" class="button">
+                        Start Your Journey <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+
+
+            </div>
+        </section>
+
+        <section class="about section" id="about">
+            <div class="container about__container">
+                <div class="about__data">
+                    <h2 class="section__title">Learn More<br>About Travel</h2>
+                    <p class="about__description">
+                        All the trips around INDIA are a great pleasure and happiness
+                        for anyone. Enjoy the sights when you travel India. Travel
+                        safely and without worries, get your trip and explore the
+                        paradises of INDIA.
+                    </p>
+                    <a href="#popular" class="button">
+                        Explore Travel <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+                <div class="about__image floating">
+                    <img src="assets/img/about_mysore.jpg" alt="About Mysore" class="about__img">
+                    <div class="about__shadow"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="popular section" id="popular">
+            <h2 class="section__title">Enjoy The Beauty<br>Of INDIA</h2>
+            <div class="container popular__container">
+                <article class="popular_card">
+                    <div class="popular__image">
+                        <img src="assets/img/home_mysore-palace.jpg" alt="Mysore Palace" class="popular__img">
+                        <div class="popular__shadow"></div>
+                    </div>
+                    <h2 class="popular__title">MYSORE PALACE</h2>
+                    <div class="popular__location">
+                        <i class="ri-map-pin-line"></i>
+                        <span>MYSORE-KARNATAKA</span>
+                    </div>
+                </article>
+
+                <article class="popular_card">
+                    <div class="popular__image">
+                        <img src="assets/img/home_jog-fall.jpg" alt="Jog Falls" class="popular__img">
+                        <div class="popular__shadow"></div>
+                    </div>
+                    <h2 class="popular__title">JOG FALLS</h2>
+                    <div class="popular__location">
+                        <i class="ri-map-pin-line"></i>
+                        <span>SHIMOGA-KARNATAKA</span>
+                    </div>
+                </article>
+
+                <article class="popular_card">
+                    <div class="popular__image">
+                        <img src="assets/img/home_unity-statue.jpg" alt="Statue of Unity" class="popular__img">
+                        <div class="popular__shadow"></div>
+                    </div>
+                    <h2 class="popular__title">STATUE OF UNITY</h2>
+                    <div class="popular__location">
+                        <i class="ri-map-pin-line"></i>
+                        <span>NARMADA-GUJARAT</span>
+                    </div>
+                </article>
+
+                <article class="popular_card">
+                    <div class="popular__image">
+                        <img src="assets/img/home_mountain.jpg" alt="Himalayan Mountains" class="popular__img">
+                        <div class="popular__shadow"></div>
+                    </div>
+                    <h2 class="popular__title">HIMALAYAN MOUNTAINS</h2>
+                    <div class="popular__location">
+                        <i class="ri-map-pin-line"></i>
+                        <span>HIMACHAL PRADESH</span>
+                    </div>
+                </article>
+
+                <article class="popular_card">
+                    <div class="popular__image">
+                        <img src="assets/img/home_beach.jpg" alt="Beach" class="popular__img">
+                        <div class="popular__shadow"></div>
+                    </div>
+                    <h2 class="popular__title">BEACH</h2>
+                    <div class="popular__location">
+                        <i class="ri-map-pin-line"></i>
+                        <span>MAHARASHTRA</span>
+                    </div>
+                </article>
+
+                <article class="popular_card">
+                    <div class="popular__image">
+                        <img src="assets/img/gumbazz.jpg" alt="Gumbaz" class="popular__img">
+                        <div class="popular__shadow"></div>
+                    </div>
+                    <h2 class="popular__title">GUMBAZ</h2>
+                    <div class="popular__location">
+                        <i class="ri-map-pin-line"></i>
+                        <span>VIJAYPUR-KARNATAKA</span>
+                    </div>
+                </article>
+
+                <article class="popular_card">
+                    <div class="popular__image">
+                        <img src="assets/img/home_lake.jpg" alt="Sikkim Lake" class="popular__img">
+                        <div class="popular__shadow"></div>
+                    </div>
+                    <h2 class="popular__title">SIKKIM LAKE</h2>
+                    <div class="popular__location">
+                        <i class="ri-map-pin-line"></i>
+                        <span>KANCHENJUNGA</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="explore section" id="explore">
+            <div class="explore__container">
+                <div class="explore__image">
+                    <img src="assets/img/explore_beach.jpg" alt="Explore Beach" class="explore__img">
+                    <div class="explore__shadow"></div>
+                </div>
+
+                <div class="explore__content container">
+                    <div class="explore__data">
+                        <h2 class="section__title">Explore The<br>Best Paradises</h2>
+                        <p class="explore__description">
+                            Exploring paradises such as islands and valleys when traveling
+                            the INDIA is one of the greatest experiences when you
+                            travel, it offers you harmony and peace and you can enjoy it
+                            with great comfort.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container testimonials__container">
+                <article class="testimonial_card">
+                    <div class="testimonial__image">
+                        <img src="assets/img/p1.jpg" alt="ABD" class="testimonial__img">
+                    </div>
+                    <h2 class="testimonial__title">ABD</h2>
+                    <div class="stars">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>
+                    <p>"MYSORE PALACE was epic. I enjoyed more in Karnataka and people showed me more love. Good place to visit."</p>
+                </article>
+
+                <article class="testimonial_card">
+                    <div class="testimonial__image">
+                        <img src="assets/img/p2.jpg" alt="Maxwell" class="testimonial__img">
+                    </div>
+                    <h2 class="testimonial__title">MAXWELL</h2>
+                    <div class="stars">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-line"></i>
+                    </div>
+                    <p>"Sikkim is a true paradise! The sunset, terraced rice fields were simply stunning. India's rich culture made this trip unforgettable."</p>
+                </article>
+
+                <article class="testimonial_card">
+                    <div class="testimonial__image">
+                        <img src="assets/img/p3.jpg" alt="Obama" class="testimonial__img">
+                    </div>
+                    <h2 class="testimonial__title">OBAMA</h2>
+                    <div class="stars">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                    </div>
+                    <p>"I have never seen natural beauty like this. It's a natural wonder! A diver's and nature lover's dream."</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="join section">
+            <div class="container join__container">
+                <div class="join__data">
+                    <h2 class="section__title">Your Journey<br>Starts Here</h2>
+                    <p class="join__description">
+                        Get up to date with the latest travel and information from us.
+                    </p>
+                    <form class="join__form">
+                        <input type="email" placeholder="Enter your email" class="join__input">
+                        <button type="submit" class="button">
+                            Subscribe Our Channel <i class="ri-arrow-right-line"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="join__image">
+                    <img src="assets/img/join_devru.jpg" alt="Join" class="join__img">
+                    <div class="join__shadow"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer_content">
+                <div class="footer__profile-section">
+                    <h1 class="footer__logo-title">
+                        <i class="ri-fire-fill"></i> MY PROFILE
+                    </h1>
+                    <img src="assets/img/my_profile.jpg" alt="Koushik HY Profile" class="footer__profile-img">
+                    <p class="footer__description">
+                        <i class="ri-code-s-slash-line"></i> Full Stack Developer<br>
+                        <i class="ri-palette-line"></i> Specializing in Web & Mobile Applications<br>
+                        <i class="ri-stack-line"></i> HTML • CSS • JavaScript Expert
+                    </p>
+                </div>
+
+                <div class="footer__data">
+                    <div>
+                        <h3 class="footer__title">
+                            <i class="ri-user-heart-line"></i> About Me
+                        </h3>
+                        <ul class="footer__descriptions">
+                            <li>
+                                <p class="footer__description">
+                                    👋 Hi, I'm <a href="mailto:koushik4475@gmail.com" class="footer__name-link">KOUSHIK HY</a><br><br>
+                                    🎓 Computer Science & Design<br>
+                                    🏛️ Mysore University<br><br>
+                                    💡 Passionate about creating innovative<br>
+                                    digital solutions and beautiful user<br>
+                                    experiences
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">
+                            <i class="ri-building-line"></i> Education
+                        </h3>
+                        <ul class="footer__descriptions">
+                            <li>
+                                <p class="footer__description footer__institution">
+                                    🎯 Mysore University
+                                </p>
+                            </li>
+                            <li>
+                                <p class="footer__description">
+                                    📚 Bachelor's Degree
+                                </p>
+                            </li>
+                            <li>
+                                <p class="footer__description">
+                                    💻 Computer Science & Design
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="footer__title">
+                            <i class="ri-mail-send-line"></i> Get In Touch
+                        </h3>
+                        <ul class="footer__descriptions">
+                            <li>
+                                <a href="mailto:koushik.h.y44@gmail.com" class="footer__contact-link">
+                                    <i class="ri-mail-line"></i> koushik.h.y44@gmail.com
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+919620****68" class="footer__contact-link">
+                                    <i class="ri-phone-line"></i> +91 9620 ****68
+                                </a>
+                            </li>
+                            <li>
+                                <p class="footer__description footer__availability">
+                                    <i class="ri-time-line"></i> Available for freelance projects
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__group">
+                <div class="footer__social">
+                    <a href="https://www.facebook.com/profile.php?id=100016214017234&mibextid=ZbWKwL" class="footer__social-link" title="Facebook">
+                        <i class="ri-facebook-line"></i>
+                    </a>
+                    <a href="https://instagram.com/hy_koushik?igshid=MzMyNGUyNmU2YQ==" class="footer__social-link" title="Instagram">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="https://github.com/koushik4475" class="footer__social-link" title="GitHub">
+                        <i class="ri-github-line"></i>
+                    </a>
+                    <a href="https://chat.whatsapp.com/BahfvMnNJy23oZmqvpgRA0" class="footer__social-link" title="WhatsApp">
+                        <i class="ri-whatsapp-line"></i>
+                    </a>
+                </div>
+                <span class="footer__copy">
+                    <i class="ri-copyright-line"></i> 2024 Koushik HY. Crafted with <i class="ri-heart-fill" style="color: #ff6b6b;"></i> All rights reserved
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="ri-arrow-up-line"></i>
+    </a>
+
+    <script>
+        // Particle Animation
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray = [];
+        const numberOfParticles = 100;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width || this.x < 0) {
+                    this.speedX = -this.speedX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.speedY = -this.speedY;
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(255, 107, 73, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function connectParticles() {
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    const dx = particlesArray[a].x - particlesArray[b].x;
+                    const dy = particlesArray[a].y - particlesArray[b].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        const opacity = 1 - (distance / 100);
+                        ctx.strokeStyle = `rgba(255, 107, 73, ${opacity * 0.2})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+
+        // Navigation and Scroll Effects
+        const header = document.getElementById('header');
+        const navLinks = document.querySelectorAll('.nav__link');
+        const sections = document.querySelectorAll('section[id]');
+        const scrollUp = document.getElementById('scroll-up');
+
+        // Blur header on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= 50) {
+                header.classList.add('blur-header');
+            } else {
+                header.classList.remove('blur-header');
+            }
+
+            // Show scroll up button
+            if (window.scrollY >= 350) {
+                scrollUp.classList.add('show-scroll');
+            } else {
+                scrollUp.classList.remove('show-scroll');
+            }
+
+            // Active section highlighting
+            const scrollY = window.pageYOffset;
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 58;
+                const sectionId = current.getAttribute('id');
+                const correspondingLink = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    correspondingLink?.classList.add('active-link');
+                } else {
+                    correspondingLink?.classList.remove('active-link');
+                }
+            });
+        });
+
+        // Smooth scroll for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.home__card, .popular_card, .testimonial_card, .about__data, .about__image').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
