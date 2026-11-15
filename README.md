@@ -1,6 +1,9 @@
 <div align="center">
 
-# 🕌 GO INDIA
+# GO INDIA | Explore India's Destinations, Culture & Travel Experiences
+
+GO INDIA is a responsive India travel and culture website designed to introduce visitors to destinations, heritage, experiences, and the diversity of India. The project includes destination showcases, editorial sections, testimonials, and a newsletter interface, making it a front-end web design project for travel discovery and tourism content. Explore the live site at https://gooindia.netlify.app/.
+
 
 ### *Discover the Incredible Beauty & Cultural Richness of India*
 
