@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gooindia.netlify.app/sitemap.xml
