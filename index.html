@@ -1310,11 +1310,9 @@
         // Particle Animation
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
         let particlesArray = [];
+        let animationFrameId = null;
         const numberOfParticles = 100;
 
         class Particle {
@@ -1331,12 +1329,8 @@
                 this.x += this.speedX;
                 this.y += this.speedY;
 
-                if (this.x > canvas.width || this.x < 0) {
-                    this.speedX = -this.speedX;
-                }
-                if (this.y > canvas.height || this.y < 0) {
-                    this.speedY = -this.speedY;
-                }
+                if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+                if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
             }
 
             draw() {
@@ -1347,7 +1341,7 @@
             }
         }
 
-        function init() {
+        function initParticles() {
             particlesArray = [];
             for (let i = 0; i < numberOfParticles; i++) {
                 particlesArray.push(new Particle());
@@ -1356,7 +1350,7 @@
 
         function connectParticles() {
             for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a; b < particlesArray.length; b++) {
+                for (let b = a + 1; b < particlesArray.length; b++) {
                     const dx = particlesArray[a].x - particlesArray[b].x;
                     const dy = particlesArray[a].y - particlesArray[b].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
@@ -1374,25 +1368,68 @@
             }
         }
 
-        function animate() {
+        function drawParticles(shouldUpdate = true) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
+
+            for (const particle of particlesArray) {
+                if (shouldUpdate) particle.update();
+                particle.draw();
             }
-            
+
             connectParticles();
-            requestAnimationFrame(animate);
         }
 
-        init();
-        animate();
+        function animateParticles() {
+            if (document.hidden || reducedMotion.matches) {
+                animationFrameId = null;
+                drawParticles(false);
+                return;
+            }
 
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            init();
+            drawParticles();
+            animationFrameId = window.requestAnimationFrame(animateParticles);
+        }
+
+        function startParticleAnimation() {
+            if (document.hidden || reducedMotion.matches || animationFrameId !== null) return;
+            animationFrameId = window.requestAnimationFrame(animateParticles);
+        }
+
+        function stopParticleAnimation() {
+            if (animationFrameId !== null) {
+                window.cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+        }
+
+        function resizeParticleCanvas() {
+            const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.floor(window.innerWidth * pixelRatio);
+            canvas.height = Math.floor(window.innerHeight * pixelRatio);
+            canvas.style.width = window.innerWidth + 'px';
+            canvas.style.height = window.innerHeight + 'px';
+            ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+            initParticles();
+            drawParticles(false);
+            startParticleAnimation();
+        }
+
+        resizeParticleCanvas();
+        window.addEventListener('resize', resizeParticleCanvas);
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopParticleAnimation();
+            } else {
+                startParticleAnimation();
+            }
+        });
+        reducedMotion.addEventListener('change', () => {
+            if (reducedMotion.matches) {
+                stopParticleAnimation();
+                drawParticles(false);
+            } else {
+                startParticleAnimation();
+            }
         });
 
         // Navigation and Scroll Effects
