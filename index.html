@@ -1478,7 +1478,7 @@
                 
                 if (targetSection) {
                     targetSection.scrollIntoView({
-                        behavior: 'smooth'
+                        behavior: reducedMotion.matches ? 'auto' : 'smooth'
                     });
                 }
             });
@@ -1499,12 +1499,29 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.home__card, .popular_card, .testimonial_card, .about__data, .about__image').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.8s ease';
-            observer.observe(el);
-        });
+        const revealElements = document.querySelectorAll('.home__card, .popular_card, .testimonial_card, .about__data, .about__image');
+
+        function syncRevealMotion() {
+            if (reducedMotion.matches) {
+                observer.disconnect();
+                revealElements.forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                    el.style.transition = 'none';
+                });
+                return;
+            }
+
+            revealElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.8s ease';
+                observer.observe(el);
+            });
+        }
+
+        syncRevealMotion();
+        reducedMotion.addEventListener('change', syncRevealMotion);
     </script>
 </body>
 </html>
